@@ -1,0 +1,270 @@
+<?php
+
+namespace Database\Seeders;
+
+use App\Models\Category;
+use App\Models\Product;
+use Illuminate\Database\Seeder;
+
+class ProductSeeder extends Seeder
+{
+    public function run(): void
+    {
+        $cat = fn (string $slug) => Category::where('type', Category::TYPE_PRODUCT)->where('slug', $slug)->value('id');
+
+        $products = [
+            [
+                'category_id' => $cat('business-management'),
+                'name' => 'SoftoPharma',
+                'slug' => 'pharmacy-management-system',
+                'tagline' => 'Run your pharmacy. Not your paperwork.',
+                'website_url' => 'https://softopharma.digiprosoft.com/',
+                'icon' => 'pill',
+                'sort_order' => 1,
+                'is_featured' => true,
+                'target_audience' => ['Retail pharmacies', 'Pharmacy chains', 'Medicine wholesalers', 'Hospital dispensaries'],
+                'short_description' => 'SoftoPharma is DigiProSoft’s pharmacy management software for Bangladesh: fast POS billing, medicine inventory, batch and expiry tracking, purchases, accounts and multi-branch reporting.',
+                'description' => "Running a pharmacy means managing thousands of items with different batches, expiry dates and prices, while serving customers quickly at the counter. SoftoPharma is DigiProSoft’s pharmacy management solution built specifically for this workload.\n\nIt combines a fast pharmacy POS with medicine inventory, batch-level expiry tracking, purchase and supplier management, customer accounts, practical ledgers and reports that show what is selling, what is expiring and where money is tied up in stock.\n\nExplore the live product at [softopharma.digiprosoft.com](https://softopharma.digiprosoft.com/).",
+                'problem' => "Most pharmacies still track stock in notebooks or basic spreadsheets. Manual sales calculations slow the counter, expired medicines are discovered too late, popular items run out unexpectedly, supplier dues are hard to reconcile and there is no reliable picture of daily profit.\n\nGeneric accounting or shop software does not understand batches, expiry, generic names or the way medicines are sold in strips and units — and owners with more than one outlet lose the big picture across branches.",
+                'solution' => "SoftoPharma tracks every medicine at batch level with expiry dates, supports strip/unit selling, and helps you monitor stock before it expires or runs low. Billing is built for pharmacy counters so sales stay fast, and every sale updates stock, customer dues and daily reports automatically.\n\nIt works from desktop, laptop, tablet or mobile browsers, can be installed as a progressive web app for POS, and supports multi-branch inventory, sales and reporting on eligible plans.",
+                'features' => [
+                    ['icon' => 'receipt', 'title' => 'Pharmacy POS', 'description' => 'Fast billing, medicine search, barcode support and sales management built for the counter.'],
+                    ['icon' => 'boxes', 'title' => 'Medicine inventory', 'description' => 'Clear stock visibility across items so fast movers stay available and slow stock is easier to spot.'],
+                    ['icon' => 'package', 'title' => 'Batch & expiry management', 'description' => 'Track medicines by batch with expiry status so wastage and unsafe dispensing are reduced.'],
+                    ['icon' => 'briefcase', 'title' => 'Purchase & supplier management', 'description' => 'Record purchases, supplier information and outstanding balances in one place.'],
+                    ['icon' => 'users', 'title' => 'Customer management', 'description' => 'Store customer information and review purchase history when you need it.'],
+                    ['icon' => 'chart', 'title' => 'Reports & analytics', 'description' => 'Practical, exportable reports on sales, stock, purchases, dues and business performance.'],
+                    ['icon' => 'refresh', 'title' => 'Multi-branch ready', 'description' => 'On Professional and Enterprise plans, manage branch-wise inventory, sales, transfers and central reporting.'],
+                    ['icon' => 'smartphone', 'title' => 'Manage from anywhere', 'description' => 'Web interface for desktop, laptop, tablet and mobile, with POS installable as a progressive web app.'],
+                ],
+                'benefits' => [
+                    ['title' => 'Faster counter sales', 'description' => 'Replace paper bills and calculator math with a pharmacy-ready POS.'],
+                    ['title' => 'Reduce expiry losses', 'description' => 'Batch and expiry tracking makes ageing stock visible before it becomes waste.'],
+                    ['title' => 'Clearer business reports', 'description' => 'Sales, stock, purchases and dues stop living in guesswork or spreadsheets.'],
+                    ['title' => 'Grow beyond one outlet', 'description' => 'Eligible plans support multi-branch inventory, sales and role-based staff access.'],
+                ],
+                'screenshots' => [
+                    ['src' => '/images/illustrations/dashboard-pharmacy.svg', 'alt' => 'Illustration of the SoftoPharma pharmacy management dashboard showing sales, expiring stock and low-stock alerts', 'caption' => 'SoftoPharma dashboard — sales, expiry and low-stock alerts'],
+                    ['src' => '/images/illustrations/screen-pos.svg', 'alt' => 'Illustration of the SoftoPharma pharmacy counter billing screen with item search and receipt totals', 'caption' => 'Pharmacy POS billing screen'],
+                ],
+                'faqs' => [
+                    ['question' => 'What is SoftoPharma?', 'answer' => 'SoftoPharma is a pharmacy management solution by DigiProSoft for sales, inventory, expiry, purchases, customers, accounts and reporting.'],
+                    ['question' => 'Is SoftoPharma suitable for small pharmacies?', 'answer' => 'Yes. The Starter plan is designed for single-branch pharmacies that need POS, inventory and core operations without unnecessary complexity.'],
+                    ['question' => 'Can I manage multiple pharmacy branches?', 'answer' => 'Yes, on Professional and Enterprise plans. You can work with branch-wise inventory, sales, reporting and role-based staff access.'],
+                    ['question' => 'Can I track medicine batch and expiry dates?', 'answer' => 'Yes. SoftoPharma includes batch and expiry tracking so you can monitor stock status before medicines expire.'],
+                    ['question' => 'Is there a free demo?', 'answer' => 'Yes. You can visit softopharma.digiprosoft.com to explore SoftoPharma, book a free personalized demo, and eligible plans may include a free trial when self-service registration is enabled.'],
+                    ['question' => 'Can I import my existing product list?', 'answer' => 'Yes. SoftoPharma supports catalog import workflows, and during onboarding we can discuss the best migration path for your current records.'],
+                ],
+                'seo_title' => 'SoftoPharma – Pharmacy Management Software in Bangladesh | DigiProSoft',
+                'seo_description' => 'SoftoPharma by DigiProSoft: pharmacy POS, medicine inventory, batch and expiry tracking, purchases, accounts and multi-branch reporting for pharmacies in Bangladesh.',
+            ],
+            [
+                'category_id' => $cat('business-management'),
+                'name' => 'Hotel Management System',
+                'slug' => 'hotel-management-system',
+                'tagline' => 'Reservations, front desk, billing and housekeeping',
+                'icon' => 'bed',
+                'sort_order' => 2,
+                'is_featured' => true,
+                'target_audience' => ['Hotels', 'Guest houses', 'Resorts', 'Serviced apartments'],
+                'short_description' => 'Hotel software that manages room reservations, check-in and check-out, guest folios, restaurant and service billing, housekeeping status and occupancy reports.',
+                'description' => "Hotels juggle bookings from phone calls, walk-ins and online channels while keeping rooms clean, bills accurate and guests happy. DigiProSoft Hotel Management System gives the front desk, housekeeping and management one shared, real-time picture of the property.\n\nIt is suitable for independent hotels, guest houses and resorts that want a professional system without enterprise-level complexity or cost.",
+                'problem' => "Double bookings, unclear room status, hand-written bills and missing charges are common when a property runs on registers and spreadsheets. Management has no quick answer to simple questions like tonight's occupancy, pending payments or which rooms are ready.",
+                'solution' => 'A visual room calendar shows availability at a glance and prevents double bookings. Every guest has a folio where room charges, restaurant orders, laundry and other services are added automatically. Housekeeping updates room status from any device, and management sees occupancy, revenue and outstanding balances in real time.',
+                'features' => [
+                    ['icon' => 'calendar', 'title' => 'Reservation calendar', 'description' => 'Drag-and-drop room calendar with availability, rate plans, advance payments and group bookings.'],
+                    ['icon' => 'users', 'title' => 'Front desk check-in / check-out', 'description' => 'Fast guest registration with ID capture, room assignment and one-click check-out with printed invoices.'],
+                    ['icon' => 'receipt', 'title' => 'Guest folio & billing', 'description' => 'Room, food, laundry and extra services posted to a single folio with taxes, discounts and split payments.'],
+                    ['icon' => 'sparkles', 'title' => 'Housekeeping management', 'description' => 'Room status (clean, dirty, inspected, out of order) updated by housekeeping staff from mobile.'],
+                    ['icon' => 'cart', 'title' => 'Restaurant & POS', 'description' => 'Optional restaurant module that posts orders directly to room bills or takes walk-in payments.'],
+                    ['icon' => 'chart', 'title' => 'Occupancy & revenue reports', 'description' => 'Daily occupancy, ADR, revenue by source, outstanding balances and night audit summaries.'],
+                    ['icon' => 'shield', 'title' => 'Roles & permissions', 'description' => 'Separate access for receptionists, housekeeping, accounts and managers.'],
+                    ['icon' => 'globe', 'title' => 'Website booking integration', 'description' => 'Connect a booking form on your own website so direct reservations flow straight into the system.'],
+                ],
+                'benefits' => [
+                    ['title' => 'Eliminate double bookings', 'description' => 'One live calendar for every booking channel.'],
+                    ['title' => 'Capture every charge', 'description' => 'Services are posted to the folio as they happen, not remembered at check-out.'],
+                    ['title' => 'Faster guest service', 'description' => 'Check-in and check-out take minutes, not a queue.'],
+                    ['title' => 'Clear management view', 'description' => 'Occupancy, revenue and dues are available any time, from anywhere.'],
+                ],
+                'screenshots' => [
+                    ['src' => '/images/illustrations/dashboard-hotel.svg', 'alt' => 'Illustration of the hotel management room calendar with occupied, reserved and available rooms', 'caption' => 'Reservation calendar'],
+                ],
+                'faqs' => [
+                    ['question' => 'Is the hotel system suitable for a small guest house?', 'answer' => 'Yes. It scales from a handful of rooms to larger properties. You only enable the modules you need, such as restaurant or housekeeping.'],
+                    ['question' => 'Can it connect to online travel agencies?', 'answer' => 'Channel manager integration can be added as a custom integration depending on the OTA and its available APIs. We assess this during the requirement discussion.'],
+                    ['question' => 'Does it print government-required guest registers?', 'answer' => 'Guest information is stored in a structured way and can be exported or printed in the format your property needs. Report formats are configured during setup.'],
+                ],
+                'seo_title' => 'Hotel Management Software in Bangladesh | DigiProSoft',
+                'seo_description' => 'Hotel management system for hotels, guest houses and resorts in Bangladesh: reservations, front desk, guest billing, housekeeping and occupancy reports. Book a demo.',
+            ],
+            [
+                'category_id' => $cat('retail-commerce'),
+                'name' => 'E-commerce Platform',
+                'slug' => 'ecommerce-platform',
+                'tagline' => 'Your own online store with local payments and delivery',
+                'icon' => 'cart',
+                'sort_order' => 3,
+                'is_featured' => true,
+                'target_audience' => ['Online retailers', 'Brands & manufacturers', 'Fashion & lifestyle shops', 'Grocery & F&B'],
+                'short_description' => 'A fast, mobile-first e-commerce platform with product management, bKash/Nagad and card payments, courier integration, order tracking and a clean admin panel.',
+                'description' => "Selling through social media alone limits growth: orders get lost in chat, payments are hard to reconcile and there is no brand presence customers can trust. DigiProSoft E-commerce Platform gives you a proper online store that you own and control.\n\nIt is built for the way people shop in Bangladesh — mobile first, cash on delivery alongside mobile financial services, and courier workflows that match local logistics providers.",
+                'problem' => 'Order management through Facebook inbox does not scale. Stock is oversold, delivery status is chased manually, payment confirmation depends on screenshots, and there is no data on which products or campaigns actually perform.',
+                'solution' => 'A storefront optimised for mobile browsing and fast checkout, with cash on delivery, bKash, Nagad, Rocket and card payments. Orders flow into an admin panel where you manage stock, confirm payments, book couriers and track delivery status. Built-in SEO structure helps your products appear in Google search.',
+                'features' => [
+                    ['icon' => 'smartphone', 'title' => 'Mobile-first storefront', 'description' => 'Fast product pages, search, filters, wishlist and a checkout designed for small screens.'],
+                    ['icon' => 'boxes', 'title' => 'Catalogue & variants', 'description' => 'Products with sizes, colours, bundles, stock per variant and bulk import from Excel.'],
+                    ['icon' => 'receipt', 'title' => 'Local payment methods', 'description' => 'Cash on delivery, bKash, Nagad, Rocket and card payments through supported gateways such as SSLCommerz.'],
+                    ['icon' => 'package', 'title' => 'Courier & delivery workflow', 'description' => 'Book shipments and sync status with local courier services where APIs are available; manual tracking otherwise.'],
+                    ['icon' => 'users', 'title' => 'Customer accounts & order tracking', 'description' => 'Customers track orders, reorder quickly and receive SMS/email updates.'],
+                    ['icon' => 'trending', 'title' => 'Promotions & coupons', 'description' => 'Discount codes, flash sales, free shipping rules and campaign landing pages.'],
+                    ['icon' => 'search', 'title' => 'SEO-ready structure', 'description' => 'Clean URLs, structured data for products, sitemaps and fast page loads.'],
+                    ['icon' => 'chart', 'title' => 'Sales & inventory reports', 'description' => 'Best-sellers, revenue by channel, abandoned carts and stock movement.'],
+                ],
+                'benefits' => [
+                    ['title' => 'Own your customer relationship', 'description' => 'Customer data and order history live on your platform, not on a social network.'],
+                    ['title' => 'Fewer failed deliveries', 'description' => 'Verified phone numbers, address checks and order confirmation steps reduce returns.'],
+                    ['title' => 'Grow through search', 'description' => 'Product pages that can rank organically bring customers without ad spend.'],
+                    ['title' => 'Scale operations', 'description' => 'Handle hundreds of daily orders with the same team.'],
+                ],
+                'screenshots' => [
+                    ['src' => '/images/illustrations/screen-ecommerce.svg', 'alt' => 'Illustration of an e-commerce storefront product grid on mobile and desktop', 'caption' => 'Mobile-first storefront'],
+                ],
+                'faqs' => [
+                    ['question' => 'Do I need to pay a commission on sales?', 'answer' => 'No. You own the platform. Only your payment gateway and courier charge their standard fees.'],
+                    ['question' => 'Can you migrate my products from WooCommerce or Shopify?', 'answer' => 'Yes. Products, categories, customers and order history can be migrated from most platforms via export files or APIs.'],
+                    ['question' => 'Can the store connect with my POS or inventory system?', 'answer' => 'Yes. The e-commerce platform integrates with our POS System and can be connected to other inventory systems through APIs.'],
+                ],
+                'seo_title' => 'E-commerce Website Development in Bangladesh | DigiProSoft',
+                'seo_description' => 'Launch your own online store with DigiProSoft’s e-commerce platform: mobile-first design, bKash/Nagad/card payments, courier integration and SEO-ready product pages.',
+            ],
+            [
+                'category_id' => $cat('business-management'),
+                'name' => 'School Management System',
+                'slug' => 'school-management-system',
+                'tagline' => 'Admissions, attendance, fees, exams and parent communication',
+                'icon' => 'graduation',
+                'sort_order' => 4,
+                'is_featured' => true,
+                'target_audience' => ['Schools', 'Colleges', 'Madrasahs', 'Coaching centres'],
+                'short_description' => 'School software that handles student records, admissions, class routines, attendance, fee collection, exam results and SMS notifications to parents.',
+                'description' => "Schools manage a large amount of information for students, teachers and parents — and most of it is still paper-based. DigiProSoft School Management System digitises administration so staff spend less time on paperwork and more time on education.\n\nIt works for individual schools as well as institutions with multiple campuses or shifts.",
+                'problem' => 'Fee collection is hard to reconcile, attendance registers are not searchable, result processing takes weeks and parents only hear from the school when something goes wrong. Reports for management or the board require manual compilation.',
+                'solution' => 'Student profiles hold admission details, guardians, fees, attendance and results in one place. Fees are collected against generated invoices with receipts and due lists. Teachers enter marks once and report cards are generated automatically. Parents receive SMS for attendance, fee reminders and results.',
+                'features' => [
+                    ['icon' => 'users', 'title' => 'Student & admission management', 'description' => 'Online or counter admissions, student IDs, guardian details, documents and transfer records.'],
+                    ['icon' => 'calendar', 'title' => 'Class routine & attendance', 'description' => 'Timetables per class and section, daily attendance with absence SMS to parents.'],
+                    ['icon' => 'receipt', 'title' => 'Fee management', 'description' => 'Fee structures, discounts, invoices, partial payments, due lists and printed receipts.'],
+                    ['icon' => 'file-text', 'title' => 'Exams & report cards', 'description' => 'Exam setup, mark entry by teachers, grading rules, merit lists and printable report cards.'],
+                    ['icon' => 'message', 'title' => 'Parent & SMS communication', 'description' => 'Bulk and event-based SMS for attendance, fees, results and notices.'],
+                    ['icon' => 'briefcase', 'title' => 'Staff & payroll basics', 'description' => 'Teacher profiles, attendance and simple salary sheets.'],
+                    ['icon' => 'chart', 'title' => 'Management reports', 'description' => 'Collections, dues, attendance trends and class-wise performance.'],
+                    ['icon' => 'shield', 'title' => 'Role-based access', 'description' => 'Admin, accounts, teachers and parents each see only what they need.'],
+                ],
+                'benefits' => [
+                    ['title' => 'Faster fee collection', 'description' => 'Automatic dues lists and reminders improve on-time payment.'],
+                    ['title' => 'Results in days, not weeks', 'description' => 'Report cards generate from entered marks with no manual calculation.'],
+                    ['title' => 'Better parent engagement', 'description' => 'Timely SMS keeps guardians informed and reduces enquiries at the office.'],
+                    ['title' => 'Accurate records', 'description' => 'Searchable, backed-up records replace fragile paper registers.'],
+                ],
+                'screenshots' => [
+                    ['src' => '/images/illustrations/dashboard-school.svg', 'alt' => 'Illustration of the school management dashboard with attendance summary and fee collection status', 'caption' => 'Administration dashboard'],
+                ],
+                'faqs' => [
+                    ['question' => 'Can parents access the system?', 'answer' => 'Yes. An optional parent portal lets guardians view attendance, fees and results. SMS notifications work without a portal.'],
+                    ['question' => 'Does it support Bangla report cards and notices?', 'answer' => 'Yes. Report cards, receipts and notices can be produced in Bangla, English or both.'],
+                    ['question' => 'What about multiple campuses or shifts?', 'answer' => 'Campuses and shifts are supported with separate routines and combined reporting for management.'],
+                ],
+                'seo_title' => 'School Management Software in Bangladesh | DigiProSoft',
+                'seo_description' => 'School management system for schools and colleges in Bangladesh: admissions, attendance, fees, exams, report cards and parent SMS. Request a demo from DigiProSoft.',
+            ],
+            [
+                'category_id' => $cat('retail-commerce'),
+                'name' => 'POS System',
+                'slug' => 'pos-system',
+                'tagline' => 'Point of sale with inventory for shops and restaurants',
+                'icon' => 'receipt',
+                'sort_order' => 5,
+                'is_featured' => true,
+                'target_audience' => ['Retail shops', 'Supermarkets', 'Restaurants & cafés', 'Fashion & electronics stores'],
+                'short_description' => 'A fast, reliable point-of-sale system with barcode billing, inventory, purchase management, customer dues and sales reports for single or multi-outlet businesses.',
+                'description' => "Whether you run a grocery shop, a clothing store or a restaurant, the point of sale is where speed and accuracy matter most. DigiProSoft POS System keeps the counter fast while quietly maintaining accurate stock, purchase and customer records behind the scenes.\n\nIt works with standard barcode scanners, receipt printers and cash drawers, and continues billing if the internet drops.",
+                'problem' => 'Manual billing is slow and error-prone. Stock counts never match, purchase costs are not tracked against sales, and the owner cannot see real profit or which staff member handled which sale. Adding a second outlet multiplies the confusion.',
+                'solution' => 'Barcode-driven billing with keyboard shortcuts keeps queues moving. Every sale, return and purchase updates inventory instantly. Reports show item-wise profit, staff-wise sales, stock valuation and reorder needs. Multi-outlet setups share products and customers while reporting per branch.',
+                'features' => [
+                    ['icon' => 'receipt', 'title' => 'Fast barcode billing', 'description' => 'Scan or search items, hold and resume bills, split payments and print receipts instantly.'],
+                    ['icon' => 'boxes', 'title' => 'Inventory & stock control', 'description' => 'Real-time stock, reorder alerts, stock adjustments and transfers between outlets.'],
+                    ['icon' => 'package', 'title' => 'Purchases & suppliers', 'description' => 'Purchase orders, goods received, supplier payments and dues.'],
+                    ['icon' => 'users', 'title' => 'Customers & loyalty', 'description' => 'Customer profiles, credit sales with dues, and simple points or discount schemes.'],
+                    ['icon' => 'settings', 'title' => 'Restaurant mode', 'description' => 'Table management, kitchen order tickets and item modifiers for food businesses.'],
+                    ['icon' => 'chart', 'title' => 'Sales & profit reports', 'description' => 'Daily closing, item-wise profit, category and staff performance, VAT summaries.'],
+                    ['icon' => 'refresh', 'title' => 'Offline-tolerant', 'description' => 'Keep billing during internet outages with automatic sync when back online.'],
+                    ['icon' => 'globe', 'title' => 'E-commerce sync', 'description' => 'Share stock and orders with our E-commerce Platform for omnichannel selling.'],
+                ],
+                'benefits' => [
+                    ['title' => 'Shorter queues', 'description' => 'Billing takes seconds with scanners and shortcuts.'],
+                    ['title' => 'Accurate stock', 'description' => 'Know exactly what is on the shelf and what to reorder.'],
+                    ['title' => 'Real profit visibility', 'description' => 'Purchase cost versus selling price, per item and per day.'],
+                    ['title' => 'Confident expansion', 'description' => 'Add outlets without losing control.'],
+                ],
+                'screenshots' => [
+                    ['src' => '/images/illustrations/screen-pos.svg', 'alt' => 'Illustration of the POS billing screen with item list, totals and payment options', 'caption' => 'Billing screen'],
+                ],
+                'faqs' => [
+                    ['question' => 'Which hardware does the POS work with?', 'answer' => 'Standard USB or Bluetooth barcode scanners, 58mm/80mm thermal receipt printers and cash drawers. We advise on hardware during setup.'],
+                    ['question' => 'Is VAT handled correctly?', 'answer' => 'VAT rates can be configured per item or category, and VAT summaries are available in reports. We configure it based on your business requirements.'],
+                    ['question' => 'Can I use it on a tablet?', 'answer' => 'Yes. The interface runs in a browser on desktop, laptop or tablet.'],
+                ],
+                'seo_title' => 'POS Software for Retail Shops & Restaurants in Bangladesh | DigiProSoft',
+                'seo_description' => 'POS system with barcode billing, inventory, purchases, customer dues and profit reports for shops and restaurants in Bangladesh. Single or multi-outlet. Request a demo.',
+            ],
+            [
+                'category_id' => $cat('custom-solutions'),
+                'name' => 'Custom Business Software',
+                'slug' => 'custom-business-software',
+                'tagline' => 'Software designed around how your organisation works',
+                'icon' => 'settings',
+                'sort_order' => 6,
+                'is_featured' => true,
+                'target_audience' => ['Growing SMEs', 'Distributors & wholesalers', 'Manufacturers', 'Service organisations', 'NGOs'],
+                'short_description' => 'When ready-made software does not fit, we design and build management systems, portals, ERPs and internal tools tailored to your processes, data and team.',
+                'description' => "Some businesses have processes that off-the-shelf software cannot model — a distribution network with special credit rules, a manufacturing flow with custom quality checks, or a service business with its own approval chain. For these, DigiProSoft builds custom business software.\n\nWe start from your actual workflow, design the system around it, and deliver it in stages so you see working software early.",
+                'problem' => 'Forcing a unique business into generic software creates workarounds, spreadsheets on the side and data that nobody trusts. Teams spend time fighting the tool instead of serving customers, and management still lacks a reliable view of operations.',
+                'solution' => 'We map your processes, identify the data that matters, and build a system that reflects how you actually work: the right forms, approvals, roles, reports and integrations. You own the source code and the data, and the system can grow as your business changes.',
+                'features' => [
+                    ['icon' => 'compass', 'title' => 'Requirement discovery', 'description' => 'Workshops and process mapping so the system matches real operations, not assumptions.'],
+                    ['icon' => 'layers', 'title' => 'Modular architecture', 'description' => 'Inventory, sales, HR, accounts, CRM or production modules combined as needed.'],
+                    ['icon' => 'shield', 'title' => 'Roles, approvals & audit', 'description' => 'Fine-grained permissions, approval workflows and full activity logs.'],
+                    ['icon' => 'chart', 'title' => 'Dashboards & reports', 'description' => 'Management dashboards and exportable reports designed around your KPIs.'],
+                    ['icon' => 'plug', 'title' => 'Integrations', 'description' => 'Connect payment gateways, SMS, accounting tools, ERPs or devices through APIs.'],
+                    ['icon' => 'smartphone', 'title' => 'Web & mobile access', 'description' => 'Responsive web apps, with mobile apps for field teams when required.'],
+                    ['icon' => 'lock', 'title' => 'Security by design', 'description' => 'Secure authentication, encrypted data handling and regular updates.'],
+                    ['icon' => 'code', 'title' => 'You own the code', 'description' => 'Full source code and documentation are handed over. No lock-in.'],
+                ],
+                'benefits' => [
+                    ['title' => 'Software that fits', 'description' => 'No more workarounds; the system follows your process.'],
+                    ['title' => 'Trusted data', 'description' => 'A single source of truth for operations and management.'],
+                    ['title' => 'Competitive advantage', 'description' => 'Your best processes become repeatable and scalable.'],
+                    ['title' => 'Future-proof', 'description' => 'Modular design means new features do not require a rebuild.'],
+                ],
+                'screenshots' => [
+                    ['src' => '/images/illustrations/dashboard-generic.svg', 'alt' => 'Illustration of a custom business software dashboard with KPI cards and charts', 'caption' => 'Management dashboard example'],
+                ],
+                'faqs' => [
+                    ['question' => 'How long does a custom system take?', 'answer' => 'A focused first version typically takes a few weeks to a few months depending on scope. We deliver in stages so you can start using core features early.'],
+                    ['question' => 'How is custom software priced?', 'answer' => 'After a requirement discussion we provide a fixed quote for a clearly defined scope, or a phased plan for larger systems. There are no hidden charges.'],
+                    ['question' => 'Who owns the software after delivery?', 'answer' => 'You do. Source code, database and documentation are handed over, and you can host it on your own server or cloud account.'],
+                ],
+                'seo_title' => 'Custom Business Software Development in Bangladesh | DigiProSoft',
+                'seo_description' => 'Custom business management software, ERPs and internal tools designed around your processes. Built in Bangladesh by DigiProSoft with full source code ownership.',
+            ],
+        ];
+
+        foreach ($products as $data) {
+            Product::updateOrCreate(
+                ['slug' => $data['slug']],
+                [...$data, 'is_active' => true, 'published_at' => now()->subDays(30)],
+            );
+        }
+    }
+}
