@@ -30,14 +30,14 @@
                     };
                 @endphp
                 @if($menu->isNotEmpty())
-                    <div class="relative" data-dropdown>
+                    <div class="relative inline-flex items-center" data-dropdown>
                         <a href="{{ route($item['route']) }}"
                            class="nav-link inline-flex items-center gap-1"
                            @if($isActive($item['active'])) aria-current="page" @endif>
                             {{ $item['label'] }}
                         </a>
                         <button type="button" data-dropdown-toggle aria-expanded="false" aria-haspopup="true"
-                                class="-ml-1.5 rounded-md p-1.5 text-ink-500 hover:bg-ink-100 hover:text-ink-900"
+                                class="-ml-1.5 inline-flex items-center justify-center rounded-md p-1.5 text-ink-500 hover:bg-ink-100 hover:text-ink-900"
                                 aria-label="Open {{ strtolower($item['label']) }} menu">
                             <x-ui.icon name="chevron-down" class="h-4 w-4 transition-transform in-data-open:rotate-180" />
                         </button>
@@ -76,11 +76,6 @@
         </nav>
 
         <div class="flex items-center gap-2">
-            @if($phone = Site::phoneHref())
-                <a href="{{ $phone }}" class="hidden items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-ink-700 hover:bg-ink-100 hover:text-ink-950 xl:inline-flex">
-                    <x-ui.icon name="phone" class="h-4 w-4 text-brand-600" /> {{ Site::phone() }}
-                </a>
-            @endif
             <x-ui.button href="{{ route('contact.show') }}" size="sm" class="whitespace-nowrap max-sm:hidden">
                 <span class="md:hidden">Free Consultation</span><span class="hidden md:inline">Get a Free Consultation</span>
             </x-ui.button>
