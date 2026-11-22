@@ -25,10 +25,10 @@ return [
     'force_canonical_host' => (bool) env('SITE_FORCE_CANONICAL_HOST', false),
 
     'contact' => [
-        'email' => env('SITE_EMAIL', ''),
-        'phone' => env('SITE_PHONE', ''),
+        'email' => env('SITE_EMAIL', 'digiprosoftofficial@gmail.com'),
+        'phone' => env('SITE_PHONE', '01851-392731'),
         // International format without "+" or spaces, e.g. 8801XXXXXXXXX
-        'whatsapp' => env('SITE_WHATSAPP', ''),
+        'whatsapp' => env('SITE_WHATSAPP', '8801518421576'),
         'whatsapp_message' => env('SITE_WHATSAPP_MESSAGE', 'Hello DigiProSoft, I would like to discuss a software project.'),
         'address' => [
             'street' => env('SITE_ADDRESS_STREET', ''),
@@ -40,11 +40,12 @@ return [
         // Leave empty to hide. Example: "Saturday – Thursday, 10:00 AM – 7:00 PM (GMT+6)"
         'hours' => env('SITE_BUSINESS_HOURS', ''),
         // Where contact form notifications are delivered. Falls back to contact.email.
-        'inquiry_recipient' => env('SITE_INQUIRY_RECIPIENT', env('SITE_EMAIL', '')),
+        'inquiry_recipient' => env('SITE_INQUIRY_RECIPIENT', env('SITE_EMAIL', 'digiprosoftofficial@gmail.com')),
     ],
 
     'social' => [
         'facebook' => env('SOCIAL_FACEBOOK', ''),
+        'instagram' => env('SOCIAL_INSTAGRAM', ''),
         'linkedin' => env('SOCIAL_LINKEDIN', ''),
         'youtube' => env('SOCIAL_YOUTUBE', ''),
         'x' => env('SOCIAL_X', ''),

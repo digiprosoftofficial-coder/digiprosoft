@@ -36,6 +36,7 @@ class SocialSettingsTest extends TestCase
         Livewire::test(SocialSettings::class)
             ->fillForm([
                 'facebook' => 'https://www.facebook.com/digiprosoft',
+                'instagram' => 'https://www.instagram.com/digiprosoft',
                 'linkedin' => 'https://www.linkedin.com/company/digiprosoft',
                 'youtube' => '',
                 'x' => '',
@@ -47,6 +48,7 @@ class SocialSettingsTest extends TestCase
 
         $this->assertDatabaseHas('site_settings', [
             'facebook' => 'https://www.facebook.com/digiprosoft',
+            'instagram' => 'https://www.instagram.com/digiprosoft',
             'linkedin' => 'https://www.linkedin.com/company/digiprosoft',
             'youtube' => null,
             'twitter_handle' => 'digiprosoft',
@@ -54,6 +56,7 @@ class SocialSettingsTest extends TestCase
 
         $this->get('/')
             ->assertSee('https://www.facebook.com/digiprosoft', false)
+            ->assertSee('https://www.instagram.com/digiprosoft', false)
             ->assertSee('https://www.linkedin.com/company/digiprosoft', false)
             ->assertSee('name="twitter:site" content="@digiprosoft"', false)
             ->assertDontSee('https://www.youtube.com', false);
@@ -86,6 +89,7 @@ class SocialSettingsTest extends TestCase
         Livewire::test(SocialSettings::class)
             ->fillForm([
                 'facebook' => '',
+                'instagram' => '',
                 'linkedin' => '',
                 'youtube' => '',
                 'x' => '',

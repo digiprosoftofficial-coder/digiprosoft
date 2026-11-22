@@ -64,6 +64,11 @@ class SocialSettings extends Page
                             ->url()
                             ->maxLength(255)
                             ->placeholder('https://www.facebook.com/digiprosoft'),
+                        TextInput::make('instagram')
+                            ->label('Instagram')
+                            ->url()
+                            ->maxLength(255)
+                            ->placeholder('https://www.instagram.com/digiprosoft'),
                         TextInput::make('linkedin')
                             ->label('LinkedIn')
                             ->url()

@@ -118,6 +118,8 @@ SITE_FORCE_CANONICAL_HOST=true
 
 ### 3.2 Deploy এর পর
 
+শেয়ার্ড হোস্টিং (ফোল্ডার স্ট্রাকচার, `public_html`, Vite build, পারফরম্যান্স): `doc-sm/DEPLOY-SHARED-HOSTING.md`
+
 1. `php artisan config:cache` (বা Cloud-এর সমতুল্য)
 2. `npm run build` (assets)
 3. Browser-এ চেক করো:

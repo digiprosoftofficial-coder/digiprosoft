@@ -10,10 +10,11 @@ use Illuminate\Database\Eloquent\Model;
 class SiteSetting extends Model
 {
     /** @var list<string> */
-    public const NETWORKS = ['facebook', 'linkedin', 'youtube', 'x', 'github'];
+    public const NETWORKS = ['facebook', 'instagram', 'linkedin', 'youtube', 'x', 'github'];
 
     protected $fillable = [
         'facebook',
+        'instagram',
         'linkedin',
         'youtube',
         'x',

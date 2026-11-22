@@ -5,8 +5,8 @@
     $products = Navigation::products();
     $services = Navigation::services();
     $socials = Site::socials();
-    $socialIcons = ['facebook' => 'facebook', 'linkedin' => 'linkedin', 'youtube' => 'youtube', 'x' => 'x-social', 'github' => 'github'];
-    $socialLabels = ['facebook' => 'Facebook', 'linkedin' => 'LinkedIn', 'youtube' => 'YouTube', 'x' => 'X (Twitter)', 'github' => 'GitHub'];
+    $socialIcons = ['facebook' => 'facebook', 'instagram' => 'instagram', 'linkedin' => 'linkedin', 'youtube' => 'youtube', 'x' => 'x-social', 'github' => 'github'];
+    $socialLabels = ['facebook' => 'Facebook', 'instagram' => 'Instagram', 'linkedin' => 'LinkedIn', 'youtube' => 'YouTube', 'x' => 'X (Twitter)', 'github' => 'GitHub'];
 @endphp
 <footer class="relative mt-auto bg-brand-950 text-ink-300" aria-labelledby="footer-heading">
     <h2 id="footer-heading" class="sr-only">Footer</h2>
