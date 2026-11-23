@@ -2,7 +2,7 @@
     <x-ui.page-hero :eyebrow="$service->category?->name ?? 'Service'" :title="$service->name" :breadcrumbs="$breadcrumbs" :dark="true">
         {{ $service->short_description }}
         <x-slot:actions>
-            <x-ui.button href="{{ route('contact.show', ['intent' => 'quote', 'service' => $service->slug]) }}" variant="white" size="lg">Get a Quote <x-ui.icon name="arrow-right" class="h-4 w-4" /></x-ui.button>
+            <x-ui.button href="{{ route('contact.show', ['intent' => 'quote', 'service' => $service->slug]) }}" variant="white" size="lg">{{ __('Get a Quote') }} <x-ui.icon name="arrow-right" class="h-4 w-4" /></x-ui.button>
             <x-ui.button href="{{ route('contact.show') }}" variant="outline-white" size="lg">Free Consultation</x-ui.button>
         </x-slot:actions>
     </x-ui.page-hero>

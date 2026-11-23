@@ -1,12 +1,16 @@
 @props([
-    'title' => 'Ready to move your business forward?',
-    'text' => 'Tell us about your business and what you want to improve. We will suggest the right product or a custom approach, with clear scope and pricing.',
-    'primaryLabel' => 'Get a Free Consultation',
+    'title' => null,
+    'text' => null,
+    'primaryLabel' => null,
     'primaryHref' => null,
-    'secondaryLabel' => 'Explore Our Products',
+    'secondaryLabel' => null,
     'secondaryHref' => null,
 ])
 @php
+    $title ??= __('Ready to move your business forward?');
+    $text ??= __('Tell us about your business and what you want to improve. We will suggest the right product or a custom approach, with clear scope and pricing.');
+    $primaryLabel ??= __('Get a Free Consultation');
+    $secondaryLabel ??= __('Explore Our Products');
     $primaryHref ??= route('contact.show');
     $secondaryHref ??= route('products.index');
     $wa = \App\Support\Site::whatsappUrl();
@@ -24,7 +28,10 @@
                     <x-ui.button :href="$secondaryHref" variant="outline-white" size="lg" class="w-full sm:w-auto">{{ $secondaryLabel }}</x-ui.button>
                 </div>
                 @if($wa)
-                    <p class="mt-6 text-sm text-ink-400">Prefer chat? <a href="{{ $wa }}" target="_blank" rel="noopener" class="font-medium text-white underline underline-offset-4 hover:text-brand-200">Message us on WhatsApp</a>.</p>
+                    <p class="mt-6 text-sm text-ink-400">
+                        {{ __('Prefer chat?') }}
+                        <a href="{{ $wa }}" target="_blank" rel="noopener" class="font-medium text-white underline underline-offset-4 hover:text-brand-200">{{ __('Message us on WhatsApp') }}</a>.
+                    </p>
                 @endif
             </div>
         </div>

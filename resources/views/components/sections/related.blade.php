@@ -1,6 +1,6 @@
 @props([
     'title',
-    'eyebrow' => 'Related',
+    'eyebrow' => null,
     'items',            // collection of models
     'type',             // product | service | case-study | post
     'moreLabel' => null,
@@ -8,7 +8,10 @@
     'tone' => 'light',  // light | muted
     'id' => null,
 ])
-@php $id ??= 'related-'.$type; @endphp
+@php
+    $id ??= 'related-'.$type;
+    $eyebrow ??= __('Related');
+@endphp
 @if($items->isNotEmpty())
 <section class="section-tight {{ $tone === 'muted' ? 'border-y border-ink-100 bg-ink-50/70' : '' }}" aria-labelledby="{{ $id }}-heading" id="{{ $id }}">
     <div class="container-site">

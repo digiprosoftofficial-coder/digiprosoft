@@ -1,6 +1,6 @@
 @props(['items' => [], 'light' => false])
 @if(count($items) > 1)
-<nav aria-label="Breadcrumb" {{ $attributes->merge(['class' => 'text-sm']) }}>
+<nav aria-label="{{ __('Breadcrumb') }}" {{ $attributes->merge(['class' => 'text-sm']) }}>
     <ol class="flex flex-wrap items-center gap-x-1.5 gap-y-1 {{ $light ? 'text-ink-300' : 'text-ink-500' }}" role="list">
         @foreach($items as $item)
             <li class="flex items-center gap-1.5">

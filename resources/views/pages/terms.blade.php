@@ -1,6 +1,6 @@
 @use('App\Support\Site')
 <x-layouts.app :seo="$seo">
-    <x-ui.legal-page title="Terms &amp; Conditions" updated="2026-09-17" :breadcrumbs="[['name' => 'Home', 'url' => route('home')], ['name' => 'Terms & Conditions', 'url' => route('terms')]]">
+    <x-ui.legal-page title="Terms &amp; Conditions" updated="2026-09-17" :breadcrumbs="[['name' => __('Home'), 'url' => route('home')], ['name' => __('Terms & Conditions'), 'url' => route('terms')]]">
         <p>These Terms and Conditions (“Terms”) govern your use of the {{ Site::name() }} website at {{ Site::url() }} (the “Website”) and set out the general basis on which {{ Site::legalName() }} (“{{ Site::name() }}”, “we”, “us”) provides software products and development services. Specific projects are governed by a separate written agreement, which takes precedence over these Terms where they differ.</p>
 
         <h2>1. Use of the Website</h2>

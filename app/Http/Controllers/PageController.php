@@ -24,8 +24,8 @@ class PageController extends Controller
         $seo = SeoMeta::make('About DigiProSoft — Software Company in Dhaka, Bangladesh', $description)
             ->canonical($url)
             ->breadcrumbs([
-                ['name' => 'Home', 'url' => Site::url('/')],
-                ['name' => 'About', 'url' => $url],
+                ['name' => __('Home'), 'url' => Site::url('/')],
+                ['name' => __('About'), 'url' => $url],
             ])
             ->withSchema(Schema::webPage($url, 'About DigiProSoft', $description, 'AboutPage'));
 
@@ -37,11 +37,11 @@ class PageController extends Controller
         $groups = ContentCache::rememberModels('faq.all', Faq::query()->active())->groupBy('group');
 
         $labels = [
-            'general' => 'Working with DigiProSoft',
-            'products' => 'Products',
-            'services' => 'Development services',
-            'pricing' => 'Pricing & payment',
-            'support' => 'Support & maintenance',
+            'general' => __('Working with DigiProSoft'),
+            'products' => __('Products'),
+            'services' => __('Development services'),
+            'pricing' => __('Pricing & payment'),
+            'support' => __('Support & maintenance'),
         ];
 
         $url = route('faq');
@@ -50,8 +50,8 @@ class PageController extends Controller
         $seo = SeoMeta::make('Frequently Asked Questions', $description)
             ->canonical($url)
             ->breadcrumbs([
-                ['name' => 'Home', 'url' => Site::url('/')],
-                ['name' => 'FAQ', 'url' => $url],
+                ['name' => __('Home'), 'url' => Site::url('/')],
+                ['name' => __('FAQ'), 'url' => $url],
             ])
             ->withSchema(Schema::webPage($url, 'FAQ', $description))
             ->withSchema(Schema::faqPage($groups->flatten(1), $url));
@@ -67,8 +67,8 @@ class PageController extends Controller
         $seo = SeoMeta::make('Privacy Policy', $description)
             ->canonical($url)
             ->breadcrumbs([
-                ['name' => 'Home', 'url' => Site::url('/')],
-                ['name' => 'Privacy Policy', 'url' => $url],
+                ['name' => __('Home'), 'url' => Site::url('/')],
+                ['name' => __('Privacy Policy'), 'url' => $url],
             ])
             ->withSchema(Schema::webPage($url, 'Privacy Policy', $description));
 
@@ -83,8 +83,8 @@ class PageController extends Controller
         $seo = SeoMeta::make('Terms & Conditions', $description)
             ->canonical($url)
             ->breadcrumbs([
-                ['name' => 'Home', 'url' => Site::url('/')],
-                ['name' => 'Terms & Conditions', 'url' => $url],
+                ['name' => __('Home'), 'url' => Site::url('/')],
+                ['name' => __('Terms & Conditions'), 'url' => $url],
             ])
             ->withSchema(Schema::webPage($url, 'Terms & Conditions', $description));
 

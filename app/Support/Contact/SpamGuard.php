@@ -59,18 +59,18 @@ final class SpamGuard
     public static function serviceOptions(): array
     {
         return [
-            'pharmacy-management-system' => 'Pharmacy Management System',
-            'hotel-management-system' => 'Hotel Management System',
-            'school-management-system' => 'School Management System',
-            'pos-system' => 'POS System',
-            'ecommerce-platform' => 'E-commerce Platform / Online Store',
-            'custom-software-development' => 'Custom Software Development',
-            'web-development' => 'Website Development',
-            'business-automation' => 'Business Automation',
-            'api-development' => 'API Development & Integration',
-            'saas-development' => 'SaaS Product Development',
-            'software-maintenance' => 'Software Maintenance & Support',
-            'other' => 'Something else / not sure yet',
+            'pharmacy-management-system' => __('Pharmacy Management System'),
+            'hotel-management-system' => __('Hotel Management System'),
+            'school-management-system' => __('School Management System'),
+            'pos-system' => __('POS System'),
+            'ecommerce-platform' => __('E-commerce Platform / Online Store'),
+            'custom-software-development' => __('Custom Software Development'),
+            'web-development' => __('Website Development'),
+            'business-automation' => __('Business Automation'),
+            'api-development' => __('API Development & Integration'),
+            'saas-development' => __('SaaS Product Development'),
+            'software-maintenance' => __('Software Maintenance & Support'),
+            'other' => __('Something else / not sure yet'),
         ];
     }
 
@@ -78,11 +78,11 @@ final class SpamGuard
     public static function budgetOptions(): array
     {
         return [
-            'undecided' => 'Not decided yet',
-            'under-50k' => 'Under ৳50,000',
-            '50k-150k' => '৳50,000 – ৳1,50,000',
-            '150k-500k' => '৳1,50,000 – ৳5,00,000',
-            '500k-plus' => 'Above ৳5,00,000',
+            'undecided' => __('Not decided yet'),
+            'under-50k' => __('Under ৳50,000'),
+            '50k-150k' => __('৳50,000 – ৳1,50,000'),
+            '150k-500k' => __('৳1,50,000 – ৳5,00,000'),
+            '500k-plus' => __('Above ৳5,00,000'),
         ];
     }
 }

@@ -15,12 +15,12 @@
 <header data-site-header class="group/header sticky top-0 z-50">
     <div class="border-b border-transparent bg-white/85 backdrop-blur-md transition-[box-shadow,border-color] duration-300 group-data-scrolled/header:border-ink-200/80 group-data-scrolled/header:shadow-[0_1px_0_0_rgb(15_23_42/0.04),0_8px_24px_-16px_rgb(15_23_42/0.18)]">
     <div class="container-site flex h-16 items-center justify-between gap-4 lg:h-[4.5rem]">
-        <a href="{{ route('home') }}" class="flex shrink-0 items-center gap-2.5 rounded-md" aria-label="{{ Site::name() }} — home">
+        <a href="{{ route('home') }}" class="flex shrink-0 items-center gap-2.5 rounded-md" aria-label="{{ Site::name() }} — {{ __('Home') }}">
             <x-ui.logo class="h-9 w-auto lg:h-10" />
         </a>
 
         {{-- Desktop navigation --}}
-        <nav class="hidden items-center gap-1 lg:flex" aria-label="Primary">
+        <nav class="hidden items-center gap-1 lg:flex" aria-label="{{ __('Primary') }}">
             @foreach($primary as $item)
                 @php
                     $menu = match ($item['route']) {
@@ -38,7 +38,7 @@
                         </a>
                         <button type="button" data-dropdown-toggle aria-expanded="false" aria-haspopup="true"
                                 class="-ml-1.5 inline-flex items-center justify-center rounded-md p-1.5 text-ink-500 hover:bg-ink-100 hover:text-ink-900"
-                                aria-label="Open {{ strtolower($item['label']) }} menu">
+                                aria-label="{{ __('Open :label menu', ['label' => $item['label']]) }}">
                             <x-ui.icon name="chevron-down" class="h-4 w-4 transition-transform in-data-open:rotate-180" />
                         </button>
                         <div class="invisible absolute left-1/2 top-full z-50 w-[40rem] -translate-x-1/2 pt-3 opacity-0 transition-[opacity,visibility,transform] duration-200 translate-y-1 in-data-open:visible in-data-open:translate-y-0 in-data-open:opacity-100">
@@ -63,7 +63,8 @@
                                 </ul>
                                 <div class="mt-2 border-t border-ink-100 px-3 pt-3">
                                     <a href="{{ route($item['route']) }}" class="inline-flex items-center gap-1 text-sm font-semibold text-brand-700 hover:text-brand-800">
-                                        View all {{ strtolower($item['label']) }} <x-ui.icon name="arrow-right" class="h-4 w-4" />
+                                        {{ $item['route'] === 'products.index' ? __('View all products') : __('View all services') }}
+                                        <x-ui.icon name="arrow-right" class="h-4 w-4" />
                                     </a>
                                 </div>
                             </div>
@@ -75,14 +76,15 @@
             @endforeach
         </nav>
 
-        <div class="flex items-center gap-2">
+        <div class="flex items-center gap-2 sm:gap-3">
+            <x-ui.locale-switcher class="shrink-0" />
             <x-ui.button href="{{ route('contact.show') }}" size="sm" class="whitespace-nowrap max-sm:hidden">
-                <span class="md:hidden">Free Consultation</span><span class="hidden md:inline">Get a Free Consultation</span>
+                <span class="md:hidden">{{ __('Free Consultation') }}</span><span class="hidden md:inline">{{ __('Get a Free Consultation') }}</span>
             </x-ui.button>
 
             <button type="button" data-nav-toggle aria-expanded="false" aria-controls="mobile-nav"
                     class="inline-flex h-11 w-11 items-center justify-center rounded-lg text-ink-800 hover:bg-ink-100 lg:hidden"
-                    aria-label="Open menu">
+                    aria-label="{{ __('Open menu') }}">
                 <x-ui.icon name="menu" class="h-6 w-6" />
             </button>
         </div>
@@ -90,18 +92,21 @@
     </div>
 
     {{-- Mobile navigation panel --}}
-    <div id="mobile-nav" data-nav-panel hidden class="group fixed inset-0 z-[60] lg:hidden" role="dialog" aria-modal="true" aria-label="Site navigation">
+    <div id="mobile-nav" data-nav-panel hidden class="group fixed inset-0 z-[60] lg:hidden" role="dialog" aria-modal="true" aria-label="{{ __('Site navigation') }}">
         <div data-nav-backdrop class="absolute inset-0 bg-ink-950/40 opacity-0 transition-opacity duration-200 group-data-open:opacity-100"></div>
         <div class="absolute inset-y-0 right-0 flex w-[min(100%,24rem)] translate-x-full flex-col bg-white shadow-elevated transition-transform duration-200 ease-out-expo group-data-open:translate-x-0">
-            <div class="flex h-16 items-center justify-between border-b border-ink-100 px-5">
+            <div class="flex h-16 items-center justify-between gap-3 border-b border-ink-100 px-5">
                 <x-ui.logo class="h-9 w-auto" />
-                <button type="button" data-nav-close class="inline-flex h-11 w-11 items-center justify-center rounded-lg text-ink-800 hover:bg-ink-100" aria-label="Close menu">
-                    <x-ui.icon name="x" class="h-6 w-6" />
-                </button>
+                <div class="flex items-center gap-2">
+                    <x-ui.locale-switcher />
+                    <button type="button" data-nav-close class="inline-flex h-11 w-11 items-center justify-center rounded-lg text-ink-800 hover:bg-ink-100" aria-label="{{ __('Close menu') }}">
+                        <x-ui.icon name="x" class="h-6 w-6" />
+                    </button>
+                </div>
             </div>
-            <nav class="flex-1 overflow-y-auto px-3 py-4" aria-label="Mobile primary">
+            <nav class="flex-1 overflow-y-auto px-3 py-4" aria-label="{{ __('Mobile primary') }}">
                 <ul class="space-y-1" role="list">
-                    <li><a href="{{ route('home') }}" class="block rounded-lg px-3 py-3 text-base font-medium text-ink-900 hover:bg-ink-50" @if($isActive('home')) aria-current="page" @endif>Home</a></li>
+                    <li><a href="{{ route('home') }}" class="block rounded-lg px-3 py-3 text-base font-medium text-ink-900 hover:bg-ink-50" @if($isActive('home')) aria-current="page" @endif>{{ __('Home') }}</a></li>
                     @foreach($primary as $item)
                         @php
                             $menu = match ($item['route']) {
@@ -118,7 +123,11 @@
                                         <x-ui.icon name="chevron-down" class="h-5 w-5 text-ink-400 transition-transform group-open/d:rotate-180" />
                                     </summary>
                                     <ul class="mb-2 ml-3 space-y-0.5 border-l border-ink-200 pl-3" role="list">
-                                        <li><a href="{{ route($item['route']) }}" class="block rounded-md px-3 py-2 text-sm font-semibold text-brand-700 hover:bg-brand-50">All {{ strtolower($item['label']) }}</a></li>
+                                        <li>
+                                            <a href="{{ route($item['route']) }}" class="block rounded-md px-3 py-2 text-sm font-semibold text-brand-700 hover:bg-brand-50">
+                                                {{ $item['route'] === 'products.index' ? __('All products') : __('All services') }}
+                                            </a>
+                                        </li>
                                         @foreach($menu as $entry)
                                             <li><a href="{{ route($item['route'] === 'products.index' ? 'products.show' : 'services.show', $entry['slug']) }}" class="block rounded-md px-3 py-2 text-sm text-ink-700 hover:bg-ink-50 hover:text-ink-950">{{ $entry['name'] }}</a></li>
                                         @endforeach
@@ -132,10 +141,10 @@
                 </ul>
             </nav>
             <div class="space-y-3 border-t border-ink-100 p-5">
-                <x-ui.button href="{{ route('contact.show') }}" class="w-full">Get a Free Consultation</x-ui.button>
+                <x-ui.button href="{{ route('contact.show') }}" class="w-full">{{ __('Get a Free Consultation') }}</x-ui.button>
                 @if($wa = Site::whatsappUrl())
                     <x-ui.button href="{{ $wa }}" variant="secondary" class="w-full" rel="noopener" target="_blank">
-                        <x-ui.icon name="whatsapp" class="h-5 w-5" /> Chat on WhatsApp
+                        <x-ui.icon name="whatsapp" class="h-5 w-5" /> {{ __('Chat on WhatsApp') }}
                     </x-ui.button>
                 @endif
                 @if($phone = Site::phoneHref())

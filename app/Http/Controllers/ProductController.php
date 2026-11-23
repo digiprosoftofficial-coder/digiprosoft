@@ -29,8 +29,8 @@ class ProductController extends Controller
         $seo = SeoMeta::make('Business Software Products for Bangladesh', $description)
             ->canonical($url)
             ->breadcrumbs([
-                ['name' => 'Home', 'url' => Site::url('/')],
-                ['name' => 'Products', 'url' => $url],
+                ['name' => __('Home'), 'url' => Site::url('/')],
+                ['name' => __('Products'), 'url' => $url],
             ])
             ->withSchema(Schema::webPage($url, 'Products', $description, 'CollectionPage'))
             ->withSchema(Schema::itemList('DigiProSoft products', $products->map(fn (Product $p) => ['name' => $p->name, 'url' => $p->url()])));
@@ -63,8 +63,8 @@ class ProductController extends Controller
 
         $url = $product->canonical_url ?: $product->url();
         $breadcrumbs = [
-            ['name' => 'Home', 'url' => Site::url('/')],
-            ['name' => 'Products', 'url' => route('products.index')],
+            ['name' => __('Home'), 'url' => Site::url('/')],
+            ['name' => __('Products'), 'url' => route('products.index')],
             ['name' => $product->name, 'url' => $url],
         ];
 

@@ -1,6 +1,6 @@
 @use('App\Support\Site')
 <x-layouts.app :seo="$seo">
-    <x-ui.legal-page title="Privacy Policy" updated="2026-09-17" :breadcrumbs="[['name' => 'Home', 'url' => route('home')], ['name' => 'Privacy Policy', 'url' => route('privacy')]]">
+    <x-ui.legal-page title="Privacy Policy" updated="2026-09-17" :breadcrumbs="[['name' => __('Home'), 'url' => route('home')], ['name' => __('Privacy Policy'), 'url' => route('privacy')]]">
         <p>This Privacy Policy explains how {{ Site::legalName() }} (“{{ Site::name() }}”, “we”, “us”) collects, uses and protects personal information when you use our website at {{ Site::url() }} (the “Website”) or contact us about our products and services.</p>
 
         <h2>Information we collect</h2>

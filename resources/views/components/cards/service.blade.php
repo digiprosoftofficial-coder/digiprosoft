@@ -8,6 +8,6 @@
     </{{ $headingLevel }}>
     <p class="mt-2 flex-1 text-[0.9375rem] leading-relaxed text-ink-600">{{ $service->short_description }}</p>
     <span class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700">
-        Learn more <x-ui.icon name="arrow-right" class="h-4 w-4 transition-transform group-hover:translate-x-0.5 motion-reduce:transform-none" />
+        {{ __('Learn more') }} <x-ui.icon name="arrow-right" class="h-4 w-4 transition-transform group-hover:translate-x-0.5 motion-reduce:transform-none" />
     </span>
 </article>

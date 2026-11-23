@@ -16,13 +16,13 @@
     @endif
     <p class="mt-3 flex-1 text-[0.9375rem] leading-relaxed text-ink-600">{{ $product->short_description }}</p>
     @if(!empty($product->target_audience))
-        <ul class="mt-4 flex flex-wrap gap-1.5" role="list" aria-label="Built for">
+        <ul class="mt-4 flex flex-wrap gap-1.5" role="list" aria-label="{{ __('Built for') }}">
             @foreach(array_slice($product->target_audience, 0, 3) as $aud)
                 <li class="rounded-md bg-ink-50 px-2 py-1 text-xs text-ink-600 ring-1 ring-inset ring-ink-200/70">{{ $aud }}</li>
             @endforeach
         </ul>
     @endif
     <span class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700">
-        View product <x-ui.icon name="arrow-right" class="h-4 w-4 transition-transform group-hover:translate-x-0.5 motion-reduce:transform-none" />
+        {{ __('View product') }} <x-ui.icon name="arrow-right" class="h-4 w-4 transition-transform group-hover:translate-x-0.5 motion-reduce:transform-none" />
     </span>
 </article>

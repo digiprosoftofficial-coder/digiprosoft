@@ -12,7 +12,7 @@
 <link rel="canonical" href="{{ $canonical }}">
 
 <meta property="og:site_name" content="{{ \App\Support\Site::name() }}">
-<meta property="og:locale" content="{{ config('site.seo.locale') }}">
+<meta property="og:locale" content="{{ app()->getLocale() === 'bn' ? 'bn_BD' : config('site.seo.locale') }}">
 <meta property="og:type" content="{{ $seo->ogType() }}">
 <meta property="og:title" content="{{ $title }}">
 <meta property="og:description" content="{{ $description }}">

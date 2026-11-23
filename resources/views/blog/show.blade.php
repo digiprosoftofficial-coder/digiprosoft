@@ -9,7 +9,7 @@
                         @if($post->category)<span class="font-semibold text-brand-700">{{ $post->category->name }}</span><span aria-hidden="true">·</span>@endif
                         <time datetime="{{ $post->published_at?->toDateString() }}">{{ $post->published_at?->format('F j, Y') }}</time>
                         <span aria-hidden="true">·</span>
-                        <span>{{ $post->reading_time }} min read</span>
+                        <span>{{ __(':n min read', ['n' => $post->reading_time]) }}</span>
                     </div>
                     <h1 class="text-display-lg mt-4">{{ $post->title }}</h1>
                     <p class="mt-5 text-lg leading-relaxed text-ink-600">{{ $post->excerpt }}</p>

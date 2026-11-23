@@ -35,8 +35,8 @@ class ContactController extends Controller
         $seo = SeoMeta::make('Contact DigiProSoft — Free Consultation, Demo or Quote', $description)
             ->canonical($url)
             ->breadcrumbs([
-                ['name' => 'Home', 'url' => Site::url('/')],
-                ['name' => 'Contact', 'url' => $url],
+                ['name' => __('Home'), 'url' => Site::url('/')],
+                ['name' => __('Contact'), 'url' => $url],
             ])
             ->withSchema(Schema::webPage($url, 'Contact', $description, 'ContactPage'));
 

@@ -4,6 +4,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LlmsTxtController;
+use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ProductController;
@@ -27,6 +28,10 @@ Route::pattern('caseStudy', '[a-z0-9-]+');
 Route::pattern('post', '[a-z0-9-]+');
 
 Route::get('/', HomeController::class)->name('home');
+
+Route::get('/locale/{locale}', LocaleController::class)
+    ->whereIn('locale', ['en', 'bn'])
+    ->name('locale.switch');
 
 Route::get('/about', [PageController::class, 'about'])->name('about');
 Route::get('/faq', [PageController::class, 'faq'])->name('faq');

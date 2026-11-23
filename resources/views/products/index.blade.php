@@ -1,16 +1,16 @@
 <x-layouts.app :seo="$seo">
     <x-ui.page-hero
-        eyebrow="Products"
-        title="Business software products built for Bangladesh"
-        :breadcrumbs="[['name' => 'Home', 'url' => route('home')], ['name' => 'Products', 'url' => route('products.index')]]">
-        Ready-to-deploy systems for pharmacies, hotels, schools, retail shops and online stores — configured for your business, supported locally, and extendable when you need more.
+        eyebrow="{{ __('Products') }}"
+        title="{{ __('Business software products built for Bangladesh') }}"
+        :breadcrumbs="[['name' => __('Home'), 'url' => route('home')], ['name' => __('Products'), 'url' => route('products.index')]]">
+        {{ __('Ready-to-deploy systems for pharmacies, hotels, schools, retail shops and online stores — configured for your business, supported locally, and extendable when you need more.') }}
         <x-slot:actions>
-            <x-ui.button href="{{ route('contact.show', ['intent' => 'demo']) }}">Request a demo <x-ui.icon name="arrow-right" class="h-4 w-4" /></x-ui.button>
-            <x-ui.button href="{{ route('services.show', 'custom-software-development') }}" variant="secondary">Need something custom?</x-ui.button>
+            <x-ui.button href="{{ route('contact.show', ['intent' => 'demo']) }}">{{ __('Request a demo') }} <x-ui.icon name="arrow-right" class="h-4 w-4" /></x-ui.button>
+            <x-ui.button href="{{ route('services.show', 'custom-software-development') }}" variant="secondary">{{ __('Need something custom?') }}</x-ui.button>
         </x-slot:actions>
     </x-ui.page-hero>
 
-    <section class="section" aria-label="Product list">
+    <section class="section" aria-label="{{ __('Product list') }}">
         <div class="container-site">
             @foreach($categories as $category)
                 @php $group = $products->where('category_id', $category->id); @endphp
@@ -43,18 +43,20 @@
     <section class="section-tight border-t border-ink-100 bg-ink-50/70" aria-labelledby="compare-heading">
         <div class="container-site grid gap-10 lg:grid-cols-12 lg:items-center">
             <div class="lg:col-span-5">
-                <p class="eyebrow">How it works</p>
-                <h2 id="compare-heading" class="text-display-sm mt-3">Product, extended product, or custom build?</h2>
-                <p class="mt-4 text-ink-600">Most businesses only need a product configured for them. Some need a module or integration added. A few need something designed from scratch. We recommend the option that fits — read our guide on <a href="{{ route('blog.show', 'custom-software-vs-ready-made-software') }}" class="font-medium text-brand-700 underline underline-offset-4">custom vs ready-made software</a>.</p>
+                <p class="eyebrow">{{ __('How it works') }}</p>
+                <h2 id="compare-heading" class="text-display-sm mt-3">{{ __('Product, extended product, or custom build?') }}</h2>
+                <p class="mt-4 text-ink-600">{!! __('Most businesses only need a product configured for them. Some need a module or integration added. A few need something designed from scratch. We recommend the option that fits — read our guide on :link.', [
+                    'link' => '<a href="'.e(route('blog.show', 'custom-software-vs-ready-made-software')).'" class="font-medium text-brand-700 underline underline-offset-4">'.e(__('custom vs ready-made software')).'</a>',
+                ]) !!}</p>
             </div>
             <ol class="grid gap-4 sm:grid-cols-3 lg:col-span-7" role="list">
                 @foreach([
-                    ['Configure', 'Your items, rates, users, receipts and reports set up in days.'],
-                    ['Extend', 'Add a module, report or integration specific to your operation.'],
-                    ['Build', 'A tailored system when nothing on the market fits.'],
+                    [__('Configure'), __('Your items, rates, users, receipts and reports set up in days.')],
+                    [__('Extend'), __('Add a module, report or integration specific to your operation.')],
+                    [__('Build'), __('A tailored system when nothing on the market fits.')],
                 ] as $i => [$title, $text])
                     <li class="rounded-2xl border border-ink-200 bg-white p-5 shadow-card">
-                        <span class="text-xs font-semibold tracking-widest text-brand-600">OPTION {{ $i + 1 }}</span>
+                        <span class="text-xs font-semibold tracking-widest text-brand-600">{{ __('OPTION :n', ['n' => $i + 1]) }}</span>
                         <h3 class="mt-2 font-semibold text-ink-900">{{ $title }}</h3>
                         <p class="mt-1.5 text-sm text-ink-600">{{ $text }}</p>
                     </li>
@@ -63,5 +65,11 @@
         </div>
     </section>
 
-    <x-cta.final title="See a product with your own data" text="Book a free demo and we will walk through the system using your items, rooms, students or products." primaryLabel="Book a Demo" :primaryHref="route('contact.show', ['intent' => 'demo'])" secondaryLabel="Talk to Us" :secondaryHref="route('contact.show')" />
+    <x-cta.final
+        title="{{ __('See a product with your own data') }}"
+        text="{{ __('Book a free demo and we will walk through the system using your items, rooms, students or products.') }}"
+        :primaryLabel="__('Book a Demo')"
+        :primaryHref="route('contact.show', ['intent' => 'demo'])"
+        :secondaryLabel="__('Talk to Us')"
+        :secondaryHref="route('contact.show')" />
 </x-layouts.app>

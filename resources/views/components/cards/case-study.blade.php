@@ -12,6 +12,6 @@
             <a href="{{ $study->url() }}" class="after:absolute after:inset-0 after:rounded-2xl focus-visible:outline-none">{{ $study->title }}</a>
         </{{ $headingLevel }}>
         <p class="mt-2 flex-1 text-[0.9375rem] leading-relaxed text-ink-600">{{ $study->summary }}</p>
-        <span class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700">Read case study <x-ui.icon name="arrow-right" class="h-4 w-4 transition-transform group-hover:translate-x-0.5 motion-reduce:transform-none" /></span>
+        <span class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700">{{ __('Read case study') }} <x-ui.icon name="arrow-right" class="h-4 w-4 transition-transform group-hover:translate-x-0.5 motion-reduce:transform-none" /></span>
     </div>
 </article>

@@ -17,12 +17,12 @@ final class Navigation
     public static function primary(): array
     {
         return [
-            ['label' => 'Products', 'route' => 'products.index', 'active' => 'products.*'],
-            ['label' => 'Services', 'route' => 'services.index', 'active' => 'services.*'],
-            ['label' => 'Portfolio', 'route' => 'portfolio.index', 'active' => 'portfolio.*'],
-            ['label' => 'Blog', 'route' => 'blog.index', 'active' => 'blog.*'],
-            ['label' => 'About', 'route' => 'about', 'active' => 'about'],
-            ['label' => 'Contact', 'route' => 'contact.show', 'active' => 'contact.*'],
+            ['label' => __('Products'), 'route' => 'products.index', 'active' => 'products.*'],
+            ['label' => __('Services'), 'route' => 'services.index', 'active' => 'services.*'],
+            ['label' => __('Portfolio'), 'route' => 'portfolio.index', 'active' => 'portfolio.*'],
+            ['label' => __('Blog'), 'route' => 'blog.index', 'active' => 'blog.*'],
+            ['label' => __('About'), 'route' => 'about', 'active' => 'about'],
+            ['label' => __('Contact'), 'route' => 'contact.show', 'active' => 'contact.*'],
         ];
     }
 

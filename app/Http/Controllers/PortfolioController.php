@@ -24,8 +24,8 @@ class PortfolioController extends Controller
         $seo = SeoMeta::make('Portfolio & Case Studies', $description)
             ->canonical($url)
             ->breadcrumbs([
-                ['name' => 'Home', 'url' => Site::url('/')],
-                ['name' => 'Portfolio', 'url' => $url],
+                ['name' => __('Home'), 'url' => Site::url('/')],
+                ['name' => __('Portfolio'), 'url' => $url],
             ])
             ->withSchema(Schema::webPage($url, 'Portfolio', $description, 'CollectionPage'));
 
@@ -49,8 +49,8 @@ class PortfolioController extends Controller
 
         $url = $study->canonical_url ?: $study->url();
         $breadcrumbs = [
-            ['name' => 'Home', 'url' => Site::url('/')],
-            ['name' => 'Portfolio', 'url' => route('portfolio.index')],
+            ['name' => __('Home'), 'url' => Site::url('/')],
+            ['name' => __('Portfolio'), 'url' => route('portfolio.index')],
             ['name' => $study->title, 'url' => $url],
         ];
 

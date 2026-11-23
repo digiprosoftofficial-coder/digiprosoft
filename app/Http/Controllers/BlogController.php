@@ -54,8 +54,8 @@ class BlogController extends Controller
         $seo = SeoMeta::make($title, $description)
             ->canonical($url)
             ->breadcrumbs([
-                ['name' => 'Home', 'url' => Site::url('/')],
-                ['name' => 'Blog', 'url' => $baseUrl],
+                ['name' => __('Home'), 'url' => Site::url('/')],
+                ['name' => __('Blog'), 'url' => $baseUrl],
             ])
             ->withSchema(Schema::webPage($url, 'Blog', $description, 'CollectionPage'));
 
@@ -83,8 +83,8 @@ class BlogController extends Controller
 
         $url = $post->canonical_url ?: $post->url();
         $breadcrumbs = [
-            ['name' => 'Home', 'url' => Site::url('/')],
-            ['name' => 'Blog', 'url' => route('blog.index')],
+            ['name' => __('Home'), 'url' => Site::url('/')],
+            ['name' => __('Blog'), 'url' => route('blog.index')],
             ['name' => $post->title, 'url' => $url],
         ];
 

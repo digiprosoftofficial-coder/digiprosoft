@@ -46,7 +46,7 @@ class SeoLandingController extends Controller
             ->rawTitle()
             ->canonical($url)
             ->breadcrumbs([
-                ['name' => 'Home', 'url' => Site::url('/')],
+                ['name' => __('Home'), 'url' => Site::url('/')],
                 ['name' => $page['h1'], 'url' => $url],
             ])
             ->withSchema(Schema::webPage($url, $page['h1'], $page['description']))
@@ -60,7 +60,7 @@ class SeoLandingController extends Controller
             'featuredProduct' => $featuredProduct,
             'seo' => $seo,
             'breadcrumbs' => [
-                ['name' => 'Home', 'url' => route('home')],
+                ['name' => __('Home'), 'url' => route('home')],
                 ['name' => $page['h1'], 'url' => $url],
             ],
         ]);

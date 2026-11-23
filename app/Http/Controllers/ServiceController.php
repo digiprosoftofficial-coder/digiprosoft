@@ -26,8 +26,8 @@ class ServiceController extends Controller
         $seo = SeoMeta::make('Software Development Services in Bangladesh', $description)
             ->canonical($url)
             ->breadcrumbs([
-                ['name' => 'Home', 'url' => Site::url('/')],
-                ['name' => 'Services', 'url' => $url],
+                ['name' => __('Home'), 'url' => Site::url('/')],
+                ['name' => __('Services'), 'url' => $url],
             ])
             ->withSchema(Schema::webPage($url, 'Services', $description, 'CollectionPage'))
             ->withSchema(Schema::itemList('DigiProSoft services', $services->map(fn (Service $s) => ['name' => $s->name, 'url' => $s->url()])));
@@ -60,8 +60,8 @@ class ServiceController extends Controller
 
         $url = $service->canonical_url ?: $service->url();
         $breadcrumbs = [
-            ['name' => 'Home', 'url' => Site::url('/')],
-            ['name' => 'Services', 'url' => route('services.index')],
+            ['name' => __('Home'), 'url' => Site::url('/')],
+            ['name' => __('Services'), 'url' => route('services.index')],
             ['name' => $service->name, 'url' => $url],
         ];
 

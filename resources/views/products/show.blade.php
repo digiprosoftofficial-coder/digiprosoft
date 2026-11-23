@@ -5,22 +5,22 @@
         <div class="container-site relative grid items-center gap-10 py-14 lg:grid-cols-12 lg:py-20">
             <div class="lg:col-span-6">
                 <x-ui.breadcrumbs :items="$breadcrumbs" class="mb-6" />
-                <p class="eyebrow">{{ $product->category?->name ?? 'Product' }}</p>
+                <p class="eyebrow">{{ $product->category?->name ?? __('Product') }}</p>
                 <h1 class="text-display-lg mt-3">{{ $product->name }}</h1>
                 @if($product->tagline)<p class="mt-3 text-xl font-medium text-brand-700">{{ $product->tagline }}</p>@endif
                 <p class="mt-5 text-lg leading-relaxed text-ink-600">{{ $product->short_description }}</p>
                 <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                     @if(filled($product->website_url))
                         <x-ui.button href="{{ $product->website_url }}" size="lg" target="_blank" rel="noopener">Visit {{ $product->name }} <x-ui.icon name="arrow-right" class="h-4 w-4" /></x-ui.button>
-                        <x-ui.button href="{{ route('contact.show', ['intent' => 'demo', 'service' => $product->slug]) }}" variant="secondary" size="lg">Request a Demo</x-ui.button>
+                        <x-ui.button href="{{ route('contact.show', ['intent' => 'demo', 'service' => $product->slug]) }}" variant="secondary" size="lg">{{ __('Request a Demo') }}</x-ui.button>
                     @else
-                        <x-ui.button href="{{ route('contact.show', ['intent' => 'demo', 'service' => $product->slug]) }}" size="lg">Request a Demo <x-ui.icon name="arrow-right" class="h-4 w-4" /></x-ui.button>
-                        <x-ui.button href="{{ route('contact.show', ['intent' => 'quote', 'service' => $product->slug]) }}" variant="secondary" size="lg">Get a Quote</x-ui.button>
+                        <x-ui.button href="{{ route('contact.show', ['intent' => 'demo', 'service' => $product->slug]) }}" size="lg">{{ __('Request a Demo') }} <x-ui.icon name="arrow-right" class="h-4 w-4" /></x-ui.button>
+                        <x-ui.button href="{{ route('contact.show', ['intent' => 'quote', 'service' => $product->slug]) }}" variant="secondary" size="lg">{{ __('Get a Quote') }}</x-ui.button>
                     @endif
                 </div>
                 @if(!empty($product->target_audience))
                     <div class="mt-8">
-                        <p class="text-xs font-semibold uppercase tracking-wider text-ink-500">Built for</p>
+                        <p class="text-xs font-semibold uppercase tracking-wider text-ink-500">{{ __('Built for') }}</p>
                         <ul class="mt-2 flex flex-wrap gap-2" role="list">
                             @foreach($product->target_audience as $aud)
                                 <li class="rounded-full border border-ink-200 bg-white px-3 py-1 text-sm text-ink-700">{{ $aud }}</li>
@@ -43,7 +43,7 @@
             <div class="container-site">
                 <div class="flex flex-col gap-6 rounded-3xl border border-brand-200 bg-gradient-to-br from-brand-50 to-white p-8 sm:flex-row sm:items-center sm:justify-between sm:p-10">
                     <div class="max-w-2xl">
-                        <p class="eyebrow">Live product website</p>
+                        <p class="eyebrow">{{ __('Live product website') }}</p>
                         <h2 id="live-product-heading" class="text-display-sm mt-3">Use {{ $product->name }} online</h2>
                         <p class="mt-3 text-ink-600">{{ $product->name }} has a dedicated product site with demos, pricing and onboarding — built and supported by DigiProSoft.</p>
                     </div>
